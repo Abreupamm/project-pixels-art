@@ -12,3 +12,10 @@ function quadroPixels(numero) {
   }
 }
 quadroPixels('5');
+
+const paleta = document.querySelector('#color-palette'); 
+function select(event){
+  let ativ = event.target.id;
+  let elemento = document.getElementById(ativ);
+  elemento.classList = 'selected';
+}
