@@ -1,0 +1,19 @@
+#preto {
+background-color: black;
+}
+#vermelho {
+background-color: red;
+}
+#azul {
+background-color: blue;
+}
+#amarelo {
+background-color: yellow;
+}
+
+.color {
+    border: black solid 1px;
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+}
