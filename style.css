@@ -1,34 +1,33 @@
 #preto {
-    background-color: black;
+  background-color: black;
 }
 
 #vermelho {
-    background-color: red;
+  background-color: red;
 }
 
 #azul {
-    background-color: blue;
+  background-color: blue;
 }
 
 #amarelo {
-    background-color: yellow;
+  background-color: yellow;
 }
 
 .white {
-    background-color: white;
+  background-color: white;
 }
 
-
 .color {
-    border: black solid 1px;
-    display: inline-block;
-    height: 50px;
-    width: 50px;
+  border: black solid 1px;
+  display: inline-block;
+  height: 50px;
+  width: 50px;
 }
 
 .pixel {
-    height: 40px;
-    width: 40px;
-    display: inline-block;
-    border: solid black 1px;
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+  border: solid black 1px;
 }
