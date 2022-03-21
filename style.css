@@ -1,14 +1,21 @@
 #preto {
-background-color: black;
+    background-color: black;
 }
+
 #vermelho {
-background-color: red;
+    background-color: red;
 }
+
 #azul {
-background-color: blue;
+    background-color: blue;
 }
+
 #amarelo {
-background-color: yellow;
+    background-color: yellow;
+}
+
+.white {
+    background-color: white;
 }
 
 .color {
@@ -16,4 +23,11 @@ background-color: yellow;
     display: inline-block;
     height: 50px;
     width: 50px;
+}
+
+.pixel {
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    border: solid black 1px;
 }
