@@ -13,9 +13,14 @@ function quadroPixels(numero) {
 }
 quadroPixels('5');
 
-const paleta = document.querySelector('#color-palette'); 
-function select(event){
-  let ativ = event.target.id;
-  let elemento = document.getElementById(ativ);
-  elemento.classList = 'selected';
+let paleta = document.querySelectorAll('.color');
+for (let index = 0; index < paleta.length; index += 1) {
+  let element = paleta[index];
+  document.getElementById('preto').classList.add('selected');
+  element.addEventListener('click', function (event) {
+    let elementSelected = event.target.id;
+    if (elementSelected !== preto) {
+      document.getElementById(elementSelected).classList.add('selected');
+    }
+  });
 }
