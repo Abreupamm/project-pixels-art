@@ -13,14 +13,15 @@ function quadroPixels(numero) {
 }
 quadroPixels('5');
 
-let paleta = document.querySelectorAll('.color');
+function selected(event) {
+  const elementSelected = event.target.id;
+  if (elementSelected !== 'preto') {
+    document.getElementById(elementSelected).classList.add('selected');
+  }
+}
+const paleta = document.querySelectorAll('.color');
 for (let index = 0; index < paleta.length; index += 1) {
-  let element = paleta[index];
+  const element = paleta[index];
   document.getElementById('preto').classList.add('selected');
-  element.addEventListener('click', function (event) {
-    let elementSelected = event.target.id;
-    if (elementSelected !== preto) {
-      document.getElementById(elementSelected).classList.add('selected');
-    }
-  });
+  element.addEventListener('click', selected);
 }
