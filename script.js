@@ -18,6 +18,7 @@ function selected(event) {
   document.querySelector('.selected').classList.remove('selected');
   document.getElementById(elementSelected).classList.add('selected');
 }
+
 const paleta = document.querySelectorAll('.color');
 for (let index = 0; index < paleta.length; index += 1) {
   const element = paleta[index];
@@ -32,8 +33,21 @@ function pintaCor(event) {
   pixelSelected.classList.add('pixel');
   pixelSelected.classList.add(quadro);
 }
+
 const divSelected = document.querySelectorAll('.pixel');
 for (let i = 0; i < divSelected.length; i += 1) {
   const div = divSelected[i];
   div.addEventListener('click', pintaCor);
 }
+
+function clear() {
+  const divs = document.querySelectorAll('.pixel');
+  for (let i = 0; i < divs.length; i += 1) {
+    divs[i].classList = '';
+    divs[i].classList.add('pixel');
+    divs[i].classList.add('white');
+  }
+}
+
+const button = document.getElementById('clear-board');
+button.addEventListener('click', clear);

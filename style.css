@@ -31,3 +31,10 @@
   display: inline-block;
   border: solid black 1px;
 }
+
+#clear-board {
+  display: block;
+  margin-left: 80px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
