@@ -15,9 +15,8 @@ quadroPixels('5');
 
 function selected(event) {
   const elementSelected = event.target.id;
-  if (elementSelected !== 'preto') {
-    document.getElementById(elementSelected).classList.add('selected');
-  }
+  document.querySelector('.selected').classList.remove('selected');
+  document.getElementById(elementSelected).classList.add('selected');
 }
 const paleta = document.querySelectorAll('.color');
 for (let index = 0; index < paleta.length; index += 1) {
