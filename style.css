@@ -1,16 +1,16 @@
-#preto {
+#preto , .preto {
   background-color: black;
 }
 
-#vermelho {
+#vermelho , .vermelho {
   background-color: red;
 }
 
-#azul {
+#azul , .azul {
   background-color: blue;
 }
 
-#amarelo {
+#amarelo , .amarelo {
   background-color: yellow;
 }
 

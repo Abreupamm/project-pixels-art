@@ -24,3 +24,16 @@ for (let index = 0; index < paleta.length; index += 1) {
   document.getElementById('preto').classList.add('selected');
   element.addEventListener('click', selected);
 }
+
+function pintaCor(event) {
+  const pixelSelected = event.target;
+  const quadro = document.querySelector('.selected').id;
+  pixelSelected.classList = '';
+  pixelSelected.classList.add('pixel');
+  pixelSelected.classList.add(quadro);
+}
+const divSelected = document.querySelectorAll('.pixel');
+for (let i = 0; i < divSelected.length; i += 1) {
+  const div = divSelected[i];
+  div.addEventListener('click', pintaCor);
+}
