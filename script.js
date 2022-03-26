@@ -4,7 +4,7 @@ function quadroPixels(numero) {
     const sect = document.createElement('div');
     for (let i = 1; i <= numero; i += 1) {
       const quadro = document.createElement('div');
-      quadro.classList.add('pixel', 'white');
+      quadro.classList.add('pixel');
       sect.appendChild(quadro);
     }
     sectionPai.appendChild(sect);
@@ -27,10 +27,8 @@ for (let index = 0; index < paleta.length; index += 1) {
 
 function pintaCor(event) {
   const pixelSelected = event.target;
-  const quadro = document.querySelector('.selected').id;
-  pixelSelected.classList = '';
-  pixelSelected.classList.add('pixel');
-  pixelSelected.classList.add(quadro);
+  const quadro = document.querySelector('.selected').style.backgroundColor;
+  pixelSelected.style.backgroundColor = quadro;
 }
 function divColor() {
   const divSelected = document.querySelectorAll('.pixel');
@@ -40,6 +38,7 @@ function divColor() {
   }
 }
 divColor();
+
 function clear() {
   const divs = document.querySelectorAll('.pixel');
   for (let i = 0; i < divs.length; i += 1) {
@@ -70,3 +69,14 @@ function pixelBoard() {
   divColor();
 }
 btnGenerate.addEventListener('click', pixelBoard);
+
+window.onload = function corAleatoria() {
+  const paleta = document.getElementsByClassName('mudaCor');
+  for (let i = 0; i < paleta.length; i += 1) {
+    const cor = '#' + Math.floor(Math.random() * 0x1000000).toString(16).padStart(6, '0');
+    const p = paleta[i];
+    p.style.backgroundColor = cor;
+  }
+};
+
+// referencia para gerar cores aleátria : https://pt.stackoverflow.com/questions/493278/como-gerar-cores-hexadecimais-aleat%C3%B3rias-com-javascript
