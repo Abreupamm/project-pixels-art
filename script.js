@@ -42,9 +42,7 @@ divColor();
 function clear() {
   const divs = document.querySelectorAll('.pixel');
   for (let i = 0; i < divs.length; i += 1) {
-    divs[i].classList = '';
-    divs[i].classList.add('pixel');
-    divs[i].classList.add('white');
+    divs[i].style.backgroundColor = '';
   }
 }
 
