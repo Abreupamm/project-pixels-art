@@ -53,6 +53,7 @@ const iptBorder = document.querySelector('#board-size');
 const btnGenerate = document.getElementById('generate-board');
 
 function pixelBoard() {
+  const marioImg = document.getElementById('mario');
   if (iptBorder.value === '' || iptBorder.value < 5) {
     alert('Board inválido!');
   } else if (iptBorder.value > 50) {
@@ -63,6 +64,11 @@ function pixelBoard() {
     const novo = iptBorder.value;
     sectionPai.innerHTML = '';
     quadroPixels(novo);
+    if (novo > 22) {
+      marioImg.classList.add('pequena');
+    } else {
+      marioImg.classList.remove('pequena');
+    }
   }
   divColor();
 }

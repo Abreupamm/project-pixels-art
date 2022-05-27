@@ -1,8 +1,12 @@
+body {
+  text-align: center;
+}
+
 .color {
   border: black solid 1px;
   display: inline-block;
-  height: 50px;
-  width: 50px;
+  height: 80px;
+  width: 80px;
 }
 
 .pixel {
@@ -20,7 +24,41 @@
   margin-left: 10px;
 }
 
-body {
+#img-mario {
+  position: absolute;
+}
+
+.pequena{
+  height: 300px;
+  width: 150px;
+  border-radius: 70px;
+}
+
+h1 {
+font-size: 100px;
+}
+
+#generate-board {
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+font-size: 30px;
+background-color: rgb(164, 175, 183);
+margin-left: 15px;
+margin-bottom: 30px;
+}
+
+#board-size {
+  width: 100px;
+  height: 40px;
+  font-size: 30px;
   text-align: center;
 }
 
+#clear-board {
+  width: 100px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 5px;
+  margin-right: 15px;
+}
