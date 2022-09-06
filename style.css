@@ -1,6 +1,6 @@
 body {
   text-align: center;
-  background-image: url('./imagens/plano-de-fundo-1.jpg');
+  background-image: url('./imagens/plano-de-fundo-1.png');
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -33,6 +33,10 @@ body {
   margin-left: 10px;
 }
 
+h1, h2 {
+  font-family: 'Press Start 2P', cursive;
+}
+
 h2 {
   font-size: 30px;
   color: black;
@@ -41,6 +45,11 @@ h2 {
 h1 {
   font-size: 70px;
   color: white;
+  text-shadow: 
+     -2px -2px 0px rgb(0, 0, 0), 
+     -2px 2px 0px rgb(0, 0, 0),                    
+      2px -2px 0px rgb(0, 0, 0),                  
+      2px 0px 0px rgb(0, 0, 0);
 }
 
 #generate-board {
