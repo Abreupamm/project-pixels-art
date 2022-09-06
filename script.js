@@ -1,4 +1,15 @@
 const sectionPai = document.getElementById('pixel-board');
+const paleta = document.querySelectorAll('.color');
+const button = document.getElementById('clear-board');
+const iptBorder = document.querySelector('#board-size');
+const btnGenerate = document.getElementById('generate-board');
+
+for (let index = 0; index < paleta.length; index += 1) {
+  const element = paleta[index];
+  document.getElementById('preto').classList.add('selected');
+  element.addEventListener('click', selected);
+}
+
 function quadroPixels(numero) {
   for (let index = 1; index <= numero; index += 1) {
     const sect = document.createElement('div');
@@ -10,19 +21,11 @@ function quadroPixels(numero) {
     sectionPai.appendChild(sect);
   }
 }
-quadroPixels('5');
 
 function selected(event) {
   const elementSelected = event.target.id;
   document.querySelector('.selected').classList.remove('selected');
   document.getElementById(elementSelected).classList.add('selected');
-}
-
-const paleta = document.querySelectorAll('.color');
-for (let index = 0; index < paleta.length; index += 1) {
-  const element = paleta[index];
-  document.getElementById('preto').classList.add('selected');
-  element.addEventListener('click', selected);
 }
 
 function pintaCor(event) {
@@ -37,7 +40,6 @@ function divColor() {
     div.addEventListener('click', pintaCor);
   }
 }
-divColor();
 
 function clear() {
   const divs = document.querySelectorAll('.pixel');
@@ -46,32 +48,22 @@ function clear() {
   }
 }
 
-const button = document.getElementById('clear-board');
-button.addEventListener('click', clear);
-
-const iptBorder = document.querySelector('#board-size');
-const btnGenerate = document.getElementById('generate-board');
-
 function pixelBoard() {
-  const marioImg = document.getElementById('mario');
   if (iptBorder.value === '' || iptBorder.value < 5) {
-    alert('Board inválido!');
-  } else if (iptBorder.value > 50) {
-    const novo = '50';
-    sectionPai.innerHTML = '';
-    quadroPixels(novo);
+    alert('O mínimo é 5!');
+  } else if (iptBorder.value > 30) {
+    alert('O máximo é 30!');
   } else {
     const novo = iptBorder.value;
     sectionPai.innerHTML = '';
     quadroPixels(novo);
-    if (novo > 22) {
-      marioImg.classList.add('pequena');
-    } else {
-      marioImg.classList.remove('pequena');
-    }
   }
   divColor();
 }
+
+quadroPixels('5');
+divColor();
+button.addEventListener('click', clear);
 btnGenerate.addEventListener('click', pixelBoard);
 
 window.onload = function corAleatoria() {
