@@ -39,6 +39,7 @@ h1, h2, #generate-board {
 
 h2 {
   color: black;
+  font-size: 15px;
 }
 
 h1 {
@@ -79,17 +80,26 @@ h1 {
 }
 
 #color-palette {
+  display: inline-block;
   background-color: rgb(170, 176, 236);
   opacity: 0.8;
-  margin:  auto;
+  /* margin-left: 10px; */
+  margin-right: 50px;
   padding: 5px;
-  width: 30%;
+  width: 100px;
   border-radius: 30px;
 }
 
 .selected {
   width: 70px;
   height: 70px;
+}
+
+#palette-container {
+  display: flex;
+  border: solid 1px red;
+  justify-content:center;
+  align-items: center;
 }
 
 #audio {

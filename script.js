@@ -3,6 +3,16 @@ const paleta = document.querySelectorAll('.color');
 const button = document.getElementById('clear-board');
 const iptBorder = document.querySelector('#board-size');
 const btnGenerate = document.getElementById('generate-board');
+const myAudio = document.getElementById('audio');
+console.log(myAudio);
+
+// function playAudio() {
+//   myAudio.played.start();
+// };
+
+// function pauseAudio() {
+//   audio.pause();
+// };
 
 for (let index = 0; index < paleta.length; index += 1) {
   const element = paleta[index];
@@ -63,6 +73,7 @@ function pixelBoard() {
 
 quadroPixels('5');
 divColor();
+// playAudio();
 button.addEventListener('click', clear);
 btnGenerate.addEventListener('click', pixelBoard);
 
