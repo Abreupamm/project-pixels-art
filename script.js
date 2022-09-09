@@ -4,20 +4,23 @@ const button = document.getElementById('clear-board');
 const iptBorder = document.querySelector('#board-size');
 const btnGenerate = document.getElementById('generate-board');
 const myAudio = document.getElementById('audio');
-console.log(myAudio);
+const colors = document.getElementById('colors');
 
-// function playAudio() {
-//   myAudio.played.start();
-// };
+function corAleatoria() {
+  const paleta = document.getElementsByClassName('mudaCor');
+  for (let i = 0; i < paleta.length; i += 1) {
+    const cor = '#' + Math.floor(Math.random() * 0x1000000).toString(16).padStart(6, '0');
+    const p = paleta[i];
+    p.style.backgroundColor = cor;
+  }
+};
 
-// function pauseAudio() {
-//   audio.pause();
-// };
-
-for (let index = 0; index < paleta.length; index += 1) {
-  const element = paleta[index];
-  document.getElementById('preto').classList.add('selected');
-  element.addEventListener('click', selected);
+function trocaCor (event) {
+  const elementSelected = event.target;
+  if (elementSelected.id !== 'preto' && elementSelected.id !== 'branco') {
+    const cor = '#' + Math.floor(Math.random() * 0x1000000).toString(16).padStart(6, '0');
+    elementSelected.style.backgroundColor = cor;
+  }
 }
 
 function quadroPixels(numero) {
@@ -32,17 +35,41 @@ function quadroPixels(numero) {
   }
 }
 
-function selected(event) {
-  const elementSelected = event.target.id;
-  document.querySelector('.selected').classList.remove('selected');
-  document.getElementById(elementSelected).classList.add('selected');
-}
 
 function pintaCor(event) {
   const pixelSelected = event.target;
   const quadro = document.querySelector('.selected').style.backgroundColor;
   pixelSelected.style.backgroundColor = quadro;
 }
+
+function selected(event) {
+  const elementSelected = event.target.id;
+  document.querySelector('.selected').classList.remove('selected');
+  document.getElementById(elementSelected).classList.add('selected');
+}
+
+function addClickPalette () {
+  document.getElementById('preto').classList.add('selected');
+  const paletteColor = document.getElementsByClassName('color');
+  for (let index = 0; index < paletteColor.length; index += 1) {
+    const element = paletteColor[index];
+    element.addEventListener('click', selected);
+    element.addEventListener('dblclick', trocaCor);
+  }
+}
+
+function addColor (qtd) {
+  for (let i = 1; i <= qtd; i += 1) {
+    const color = document.createElement('div');
+    color.classList.add('color');
+    color.classList.add('mudaCor');
+    color.id = i;
+    colors.appendChild(color);
+  }
+  corAleatoria();
+  addClickPalette();
+}
+
 function divColor() {
   const divSelected = document.querySelectorAll('.pixel');
   for (let i = 0; i < divSelected.length; i += 1) {
@@ -58,6 +85,20 @@ function clear() {
   }
 }
 
+function qdtColorPalette (number) {
+  const colors = document.getElementById('colors');
+  colors.innerHTML = '';
+if (number >= 15 && number < 20) {
+    addColor(6);
+} else if (number >= 20 && number < 25) {
+    addColor(8);
+} else if (number >= 25) {
+    addColor(12);
+} else {
+  addColor(4);
+}
+}
+
 function pixelBoard() {
   if (iptBorder.value === '' || iptBorder.value < 5) {
     alert('O mínimo é 5!');
@@ -67,23 +108,18 @@ function pixelBoard() {
     const novo = iptBorder.value;
     sectionPai.innerHTML = '';
     quadroPixels(novo);
+    qdtColorPalette(novo);
   }
   divColor();
 }
 
+addClickPalette();
 quadroPixels('5');
 divColor();
 // playAudio();
 button.addEventListener('click', clear);
 btnGenerate.addEventListener('click', pixelBoard);
 
-window.onload = function corAleatoria() {
-  const paleta = document.getElementsByClassName('mudaCor');
-  for (let i = 0; i < paleta.length; i += 1) {
-    const cor = '#' + Math.floor(Math.random() * 0x1000000).toString(16).padStart(6, '0');
-    const p = paleta[i];
-    p.style.backgroundColor = cor;
-  }
-};
+window.onload = corAleatoria();
 
 // referencia para gerar cores aleátria : https://pt.stackoverflow.com/questions/493278/como-gerar-cores-hexadecimais-aleat%C3%B3rias-com-javascript
