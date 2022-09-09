@@ -6,20 +6,22 @@ const btnGenerate = document.getElementById('generate-board');
 const myAudio = document.getElementById('audio');
 const colors = document.getElementById('colors');
 
+function newColor () {
+  const cor = '#' + Math.floor(Math.random() * 0x1000000).toString(16).padStart(6, '0');
+  return cor;
+}
+
 function corAleatoria() {
   const paleta = document.getElementsByClassName('mudaCor');
   for (let i = 0; i < paleta.length; i += 1) {
-    const cor = '#' + Math.floor(Math.random() * 0x1000000).toString(16).padStart(6, '0');
-    const p = paleta[i];
-    p.style.backgroundColor = cor;
+    paleta[i].style.backgroundColor = newColor();
   }
 };
 
 function trocaCor (event) {
   const elementSelected = event.target;
   if (elementSelected.id !== 'preto' && elementSelected.id !== 'branco') {
-    const cor = '#' + Math.floor(Math.random() * 0x1000000).toString(16).padStart(6, '0');
-    elementSelected.style.backgroundColor = cor;
+    elementSelected.style.backgroundColor = newColor();
   }
 }
 
@@ -35,15 +37,14 @@ function quadroPixels(numero) {
   }
 }
 
-
-function pintaCor(event) {
-  const pixelSelected = event.target;
+function pintaCor({target}) {
+  const pixelSelected = target;
   const quadro = document.querySelector('.selected').style.backgroundColor;
-  pixelSelected.style.backgroundColor = quadro;
+  target.style.backgroundColor = quadro;
 }
 
-function selected(event) {
-  const elementSelected = event.target.id;
+function selected({target: {id}}) {
+  const elementSelected = id;
   document.querySelector('.selected').classList.remove('selected');
   document.getElementById(elementSelected).classList.add('selected');
 }
@@ -116,7 +117,6 @@ function pixelBoard() {
 addClickPalette();
 quadroPixels('5');
 divColor();
-// playAudio();
 button.addEventListener('click', clear);
 btnGenerate.addEventListener('click', pixelBoard);
 
