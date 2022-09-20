@@ -1,46 +1,47 @@
 const sectionPai = document.getElementById('pixel-board');
-const paleta = document.querySelectorAll('.color');
+const palette = document.querySelectorAll('.color');
 const button = document.getElementById('clear-board');
 const iptBorder = document.querySelector('#board-size');
 const btnGenerate = document.getElementById('generate-board');
 const myAudio = document.getElementById('audio');
 const colors = document.getElementById('colors');
+const toSaveButton = document.getElementById('to-save');
 
 function newColor () {
   const cor = '#' + Math.floor(Math.random() * 0x1000000).toString(16).padStart(6, '0');
   return cor;
 }
 
-function corAleatoria() {
-  const paleta = document.getElementsByClassName('mudaCor');
-  for (let i = 0; i < paleta.length; i += 1) {
-    paleta[i].style.backgroundColor = newColor();
+function randomColor() {
+  const paletteChangeColor = document.getElementsByClassName('change-color');
+  for (let i = 0; i < paletteChangeColor.length; i += 1) {
+    paletteChangeColor[i].style.backgroundColor = newColor();
   }
 };
 
-function trocaCor (event) {
+function changeColor (event) {
   const elementSelected = event.target;
-  if (elementSelected.id !== 'preto' && elementSelected.id !== 'branco') {
+  if (elementSelected.id !== 'black' && elementSelected.id !== 'white') {
     elementSelected.style.backgroundColor = newColor();
   }
 }
 
-function quadroPixels(numero) {
-  for (let index = 1; index <= numero; index += 1) {
+function pixelFrame(number) {
+  for (let index = 1; index <= number; index += 1) {
     const sect = document.createElement('div');
-    for (let i = 1; i <= numero; i += 1) {
-      const quadro = document.createElement('div');
-      quadro.classList.add('pixel');
-      sect.appendChild(quadro);
+    for (let i = 1; i <= number; i += 1) {
+      const frame = document.createElement('div');
+      frame.classList.add('pixel');
+      sect.appendChild(frame);
     }
     sectionPai.appendChild(sect);
   }
 }
 
-function pintaCor({target}) {
-  const pixelSelected = target;
-  const quadro = document.querySelector('.selected').style.backgroundColor;
-  target.style.backgroundColor = quadro;
+function paintColor({target}) {
+  // const pixelSelected = target;
+  const frame = document.querySelector('.selected').style.backgroundColor;
+  target.style.backgroundColor = frame;
 }
 
 function selected({target: {id}}) {
@@ -50,12 +51,12 @@ function selected({target: {id}}) {
 }
 
 function addClickPalette () {
-  document.getElementById('preto').classList.add('selected');
+  document.getElementById('black').classList.add('selected');
   const paletteColor = document.getElementsByClassName('color');
   for (let index = 0; index < paletteColor.length; index += 1) {
     const element = paletteColor[index];
     element.addEventListener('click', selected);
-    element.addEventListener('dblclick', trocaCor);
+    element.addEventListener('dblclick', changeColor);
   }
 }
 
@@ -63,11 +64,11 @@ function addColor (qtd) {
   for (let i = 1; i <= qtd; i += 1) {
     const color = document.createElement('div');
     color.classList.add('color');
-    color.classList.add('mudaCor');
+    color.classList.add('change-color');
     color.id = i;
     colors.appendChild(color);
   }
-  corAleatoria();
+  randomColor();
   addClickPalette();
 }
 
@@ -75,7 +76,7 @@ function divColor() {
   const divSelected = document.querySelectorAll('.pixel');
   for (let i = 0; i < divSelected.length; i += 1) {
     const div = divSelected[i];
-    div.addEventListener('click', pintaCor);
+    div.addEventListener('click', paintColor);
   }
 }
 
@@ -98,7 +99,7 @@ if (number >= 15 && number < 20) {
 } else {
   addColor(4);
 }
-}
+};
 
 function pixelBoard() {
   if (iptBorder.value === '' || iptBorder.value < 5) {
@@ -106,20 +107,40 @@ function pixelBoard() {
   } else if (iptBorder.value > 30) {
     alert('O máximo é 30!');
   } else {
-    const novo = iptBorder.value;
+    const newPixel = iptBorder.value;
     sectionPai.innerHTML = '';
-    quadroPixels(novo);
-    qdtColorPalette(novo);
+    pixelFrame(newPixel);
+    qdtColorPalette(newPixel);
   }
   divColor();
-}
+};
+
+function toSavePDF() {
+  html2canvas(document.querySelector('#pixel-board'), {
+    allowTaint: true,
+    useCORS: true,
+    scale: 1,
+  }).then((canvas) => {
+    const img = canvas.toDataURL('image/png');
+    const doc = new jsPDF();
+    doc.setFont('Arial');
+    doc.getFontSize(11);
+    doc.addImage(img, 'PNG', 7, 13, 195, 105);
+    doc.save();
+  });
+};
 
 addClickPalette();
-quadroPixels('5');
+pixelFrame('5');
 divColor();
 button.addEventListener('click', clear);
 btnGenerate.addEventListener('click', pixelBoard);
+toSaveButton.addEventListener('click', toSavePDF);
 
-window.onload = corAleatoria();
+window.html2canvas = html2canvas;
+window.jsPDF = window.jspdf.jsPDF;
+
+window.onload = randomColor();
+
 
 // referencia para gerar cores aleátria : https://pt.stackoverflow.com/questions/493278/como-gerar-cores-hexadecimais-aleat%C3%B3rias-com-javascript

@@ -4,38 +4,51 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <title>Pixels Art</title>
     <link rel="stylesheet" href="style.css" />
     <audio id="audio" autoplay="autoplay" controls="false" preload="perload">
-      <source src="./music/o-holy-night-solo-piano-436s-11788.mp3" type="audio/mp3" />
+      <source
+        src="./music/o-holy-night-solo-piano-436s-11788.mp3"
+        type="audio/mp3"
+      />
       seu navegador não suporta HTML5
     </audio>
   </head>
-  
+
   <body>
     <h1 id="title">Arte com pixels</h1>
-    <input id/>
+    <input id />
     <button id="clear-board">Limpar tudo</button>
     <input id="board-size" type="number" min="1" max="50" value="" />
     <button id="generate-board">+ pixels</button>
-    <br/>
+    <br />
     <div id="palette-container">
       <section id="color-palette">
-        <div class="color" style="background-color: black" id="preto"></div>
-        <div class="color" style="background-color: white" id="branco"></div>
+        <div class="color" style="background-color: black" id="black"></div>
+        <div class="color" style="background-color: white" id="white"></div>
         <div id="colors">
-          <div class="color mudaCor" id="2"></div>
-          <div class="color mudaCor" id="3"></div>
-          <div class="color mudaCor" id="4"></div>
-          <div class="color mudaCor" id="5"></div>
+          <div class="color change-color" id="2"></div>
+          <div class="color change-color" id="3"></div>
+          <div class="color change-color" id="4"></div>
+          <div class="color change-color" id="5"></div>
         </div>
       </section>
+      <button id="to-save">Salvar</button>
       <section id="pixel-board"></section>
     </div>
-      <script src="script.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+     
+    </script>
   </body>
-  </html>
-  
+</html>
