@@ -3,9 +3,12 @@ const palette = document.querySelectorAll('.color');
 const button = document.getElementById('clear-board');
 const iptBorder = document.querySelector('#board-size');
 const btnGenerate = document.getElementById('generate-board');
-const myAudio = document.getElementById('audio');
 const colors = document.getElementById('colors');
 const toSaveButton = document.getElementById('to-save');
+const buttonMusic = document.getElementById('music');
+
+const myAudio = new Audio('music/o-holy-night-solo-piano-436s-11788.mp3');
+myAudio.play();
 
 function newColor () {
   const cor = '#' + Math.floor(Math.random() * 0x1000000).toString(16).padStart(6, '0');
@@ -130,12 +133,25 @@ function toSavePDF() {
   });
 };
 
+function playOrPauseMusic() {
+  const audio = myAudio.muted;
+  if(audio === true) {
+    myAudio.muted = false;
+    buttonMusic.src = 'imagens/volume.png'
+  } else {
+    myAudio.muted = true;
+    buttonMusic.src = 'imagens/mute.png'
+  }
+
+};
+
 addClickPalette();
 pixelFrame('5');
 divColor();
 button.addEventListener('click', clear);
 btnGenerate.addEventListener('click', pixelBoard);
 toSaveButton.addEventListener('click', toSavePDF);
+buttonMusic.addEventListener('click', playOrPauseMusic);
 
 window.html2canvas = html2canvas;
 window.jsPDF = window.jspdf.jsPDF;

@@ -15,21 +15,15 @@
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <title>Pixels Art</title>
     <link rel="stylesheet" href="style.css" />
-    <audio id="audio" autoplay="autoplay" controls="false" preload="perload">
-      <source
-        src="./music/o-holy-night-solo-piano-436s-11788.mp3"
-        type="audio/mp3"
-      />
-      seu navegador não suporta HTML5
-    </audio>
   </head>
-
+  
   <body>
+    <input type="image" src="imagens/volume.png" id="music" />
     <h1 id="title">Arte com pixels</h1>
-    <input id />
     <button id="clear-board">Limpar tudo</button>
     <input id="board-size" type="number" min="1" max="50" value="" />
     <button id="generate-board">+ pixels</button>
+    <button id="to-save">Salvar</button>
     <br />
     <div id="palette-container">
       <section id="color-palette">
@@ -42,13 +36,8 @@
           <div class="color change-color" id="5"></div>
         </div>
       </section>
-      <button id="to-save">Salvar</button>
       <section id="pixel-board"></section>
     </div>
     <script src="script.js"></script>
-    
-    <script>
-     
-    </script>
   </body>
 </html>
