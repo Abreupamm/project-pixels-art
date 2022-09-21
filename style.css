@@ -1,4 +1,6 @@
 body {
+  margin: 0;
+  padding: 0;
   text-align: center;
   background-image: url('./imagens/plano-de-fundo-1.png');
   background-repeat: no-repeat;
@@ -133,7 +135,7 @@ body {
 #popup #info button {
   display: inline;
   font-size: 30px;
-  margin: 2% 80%;
+  margin-left: 85%;
   width: 250px;
   height: 50px;
   border-radius: 8px;
