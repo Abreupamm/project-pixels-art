@@ -142,7 +142,6 @@ function playOrPauseMusic() {
     myAudio.muted = true;
     buttonMusic.src = 'imagens/mute.png'
   }
-
 };
 
 addClickPalette();
