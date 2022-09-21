@@ -147,6 +147,7 @@ function removePopup() {
   elementPopUp.classList.remove('visible');
   elementPopUp.classList.add('invisible');
   myAudio.play();
+  myAudio.loop();
 }
 
 function popup() {
