@@ -8,7 +8,6 @@ const toSaveButton = document.getElementById('to-save');
 const buttonMusic = document.getElementById('music');
 
 const myAudio = new Audio('music/o-holy-night-solo-piano-436s-11788.mp3');
-myAudio.play();
 
 function newColor () {
   const cor = '#' + Math.floor(Math.random() * 0x1000000).toString(16).padStart(6, '0');
@@ -27,7 +26,7 @@ function changeColor (event) {
   if (elementSelected.id !== 'black' && elementSelected.id !== 'white') {
     elementSelected.style.backgroundColor = newColor();
   }
-}
+};
 
 function pixelFrame(number) {
   for (let index = 1; index <= number; index += 1) {
@@ -39,19 +38,18 @@ function pixelFrame(number) {
     }
     sectionPai.appendChild(sect);
   }
-}
+};
 
 function paintColor({target}) {
-  // const pixelSelected = target;
   const frame = document.querySelector('.selected').style.backgroundColor;
   target.style.backgroundColor = frame;
-}
+};
 
 function selected({target: {id}}) {
   const elementSelected = id;
   document.querySelector('.selected').classList.remove('selected');
   document.getElementById(elementSelected).classList.add('selected');
-}
+};
 
 function addClickPalette () {
   document.getElementById('black').classList.add('selected');
@@ -61,7 +59,7 @@ function addClickPalette () {
     element.addEventListener('click', selected);
     element.addEventListener('dblclick', changeColor);
   }
-}
+};
 
 function addColor (qtd) {
   for (let i = 1; i <= qtd; i += 1) {
@@ -73,7 +71,7 @@ function addColor (qtd) {
   }
   randomColor();
   addClickPalette();
-}
+};
 
 function divColor() {
   const divSelected = document.querySelectorAll('.pixel');
@@ -81,14 +79,14 @@ function divColor() {
     const div = divSelected[i];
     div.addEventListener('click', paintColor);
   }
-}
+};
 
 function clear() {
   const divs = document.querySelectorAll('.pixel');
   for (let i = 0; i < divs.length; i += 1) {
     divs[i].style.backgroundColor = '';
   }
-}
+};
 
 function qdtColorPalette (number) {
   const colors = document.getElementById('colors');
@@ -143,6 +141,23 @@ function playOrPauseMusic() {
     buttonMusic.src = 'imagens/mute.png'
   }
 };
+
+function removePopup() {
+  const elementPopUp = document.getElementById('popup');
+  elementPopUp.classList.remove('visible');
+  elementPopUp.classList.add('invisible');
+  myAudio.play();
+}
+
+function popup() {
+  const elementPopUp = document.getElementById('popup');
+  const buttonPemovePoUp = document.getElementById('removepoup');
+  elementPopUp.classList.remove('invisible');
+  elementPopUp.classList.add('visible');
+  buttonPemovePoUp.addEventListener('click', removePopup);
+};
+
+setTimeout(popup, 2000);
 
 addClickPalette();
 pixelFrame('5');
