@@ -1,13 +1,25 @@
-# BEM VINDO ao Projeto Arte com Pixels
-Esse rojeto foi desencolvido durante o curso da trybe e foi utilizado os aprendizados, de manipular o DOM e o Javascript, adquiridos no módulo de fundamentos.
+## Boas vindas ao repositório do projeto Arte com Pixels!
 
-O pixels art é uma página web que contém uma paleta de cores funcional que poderá ser utilizada para criar desenhos em pixels.
+- O Pixel-Art é uma página web que contém uma paleta de cores funcional que poderá ser utilizada para criar desenhos em pixels. Para isto foi utilizado `javascript`, `css` e `html`.
+
+Neste projeto, você foi criado um editor de arte com pixels.
+
+**Ou seja, dada uma paleta de cores e um quadro composto por pixels, é possível que quem usa consiga pintar o que quiser no quadro!** 👩‍🎨
+  
+
+## Habilidades
+
+- Manipular o DOM
+
+- Manipular o Javascript
+
+---
 
 
-## Exemplo
-![Peek 29-04-2022 17-02](https://user-images.githubusercontent.com/99986000/166061784-785a3754-3153-468d-8322-61c9ea601e38.gif)
+## Como foi desenvolvido
+
+**💡Veja o exemplo a seguir de como o projeto ficou depois de pronto.
+![exemplo de arte com pixels](./art-with-pixels.gif)
 
 
-# Para ver o projeto funcionando
-
-Você pode acessar a página direto pelo link <a href='https://abreupamm.github.io/project-pixels-art/'>Pixels Art</a>, ou basta fazer um Fork do repositório, já que o projeto foi desenvolvido em HTML, CSS e JAVASCRIPT não é necessário nenhuma dependencia.
+---
