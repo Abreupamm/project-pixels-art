@@ -19,7 +19,7 @@ Neste projeto, você foi criado um editor de arte com pixels.
 ## Como foi desenvolvido
 
 **💡Veja o exemplo a seguir de como o projeto ficou depois de pronto.
-![exemplo de arte com pixels](./art-with-pixels.gif)
+![exemplo de arte com pixels](./pixel-art.gif)
 
 
 ---
