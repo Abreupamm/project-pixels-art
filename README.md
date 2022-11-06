@@ -16,9 +16,15 @@ Neste projeto, você foi criado um editor de arte com pixels.
 ---
 
 
+
+# Como acessar a aplicação:
+
+Link da aplicação <a href='https://abreupamm.github.io/project-pixels-art/'>Arte com pixels</a>
+
 ## Como foi desenvolvido
 
 **💡Veja o exemplo a seguir de como o projeto ficou depois de pronto.
+
 ![exemplo de arte com pixels](./pixel-art.gif)
 
 
