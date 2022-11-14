@@ -2,7 +2,7 @@
 
 - O Pixel-Art é uma página web que contém uma paleta de cores funcional que poderá ser utilizada para criar desenhos em pixels. Para isto foi utilizado `javascript`, `css` e `html`.
 
-Neste projeto, você foi criado um editor de arte com pixels.
+Neste projeto, foi criado um editor de arte com pixels.
 
 **Ou seja, dada uma paleta de cores e um quadro composto por pixels, é possível que quem usa consiga pintar o que quiser no quadro!** 👩‍🎨
   
